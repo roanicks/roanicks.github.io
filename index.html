@@ -9,7 +9,8 @@
 </head>
 <body>
   <form>
-    <label for="customRange2" class="form-label">Example range</label>
+    
+    <label for="customRange2" class="form-label">Example range: <span id="customRange2-value"></span></label>
     <input type="range" class="form-range" min="0" max="5" id="customRange2">
     
   <div class="mb-3">
@@ -35,7 +36,7 @@
 
 <script>
   $("#customRange2").on("input", function() {
-    alert("Change to " + this.value);
+    $("span#customRange2-value").text = this.value;
   });
 </script>
 </body>
