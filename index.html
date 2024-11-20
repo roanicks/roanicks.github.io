@@ -61,6 +61,19 @@
       </ul>
     </div>
 
+    <div class="input-group mb-3">
+      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Separated link</a></li>
+      </ul>
+      <input type="text" class="form-control" aria-label="Text input with dropdown button">
+    </div>
+
+
     
     <label for="hours-awake" class="form-label">How many hours are you actively checking Pokefarm each day? <span id="hours-awake-v"></span></label>
     <input type="range" class="form-range" min="0" max="24" id="hours-awake">
@@ -104,15 +117,15 @@
     false: 50,
     true: 70 // if user has hypermode
   };
-  const nickel = 1.05
-  const zinc = 1.1
-  const bronze = 1.15
-  const silver = 1.25
-  const gold = 1.4
-  const platinum = 1.6
-  const mythril = 1.8
-  const nintendium = 2.1
-  const wishalloy = 2.5
+  const nickel = 1.05;
+  const zinc = 1.1;
+  const bronze = 1.15;
+  const silver = 1.25;
+  const gold = 1.4;
+  const platinum = 1.6;
+  const mythril = 1.8;
+  const nintendium = 2.1;
+  const wishalloy = 2.5;
 
   let badges = {
     "Normal": nickel,
@@ -148,15 +161,18 @@
   let my_clicks = 25000; // per hour
 
   
-  function daily_egg_timer_exp(egg_timer, party_eggs, hours_awake):
+  function daily_egg_timer_exp(egg_timer, party_eggs, hours_awake) {
       return egg_timer * party_eggs * hours_awake;
+  }
   
-  function daily_my_interactions_exp(clicks, hours_awake, party_eggs, niet):
+  function daily_my_interactions_exp(clicks, hours_awake, party_eggs, niet) {
       return clicks * hours_awake * party_eggs * niet;
+  }
   
-  function exp_per_received_user(base, badge, niet, v_wave, party_eggs, family_bonus):
-      let badge_boost = badges.get(badge)
+  function exp_per_received_user(base, badge, niet, v_wave, party_eggs, family_bonus) {
+      let badge_boost = badges.get(badge);
       return base * badge_boost * niet * v_wave * party_eggs * family_bonus;
+  }
   
   $("#customRange2").on("input", function() {
     $("span#customRange2-value").text(this.value);
